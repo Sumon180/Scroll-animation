@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrape{
+            background-image: url("pic.jpg");
+           height: 800px;
+           width: 100%;
+           background-position: center;
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-attachment: fixed;
+        }
+        .left{
+            width: 45%;
+            padding: 50px;
+            margin-left: 20px;
+            box-sizing: border-box;
+            float: left;
+        }
+        .main1{
+            opacity: 0;
+            transition: all 1s ease-in-out;
+            transform: scale(0.1);
+        }
+        /* class for js */
+        .active{
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrape"></div>
+
+    <div class="main1" id="main1">
+        <div class="left">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel voluptates ipsam eligendi minus accusamus facere alias perferendis laborum enim delectus veritatis, dolorem totam sequi repellat impedit error sit neque placeat animi ipsum quam? Libero quia dolorem esse iure labore earum officia rem, temporibus eius, sunt alias atque voluptatibus ex est numquam animi nam dolorum consequatur perferendis dicta, reiciendis blanditiis porro? Magnam odit quibusdam itaque eum explicabo ipsa possimus minima recusandae.</p>
+        </div>
+        <div class="left">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel voluptates ipsam eligendi minus accusamus facere alias perferendis laborum enim delectus veritatis, dolorem totam sequi repellat impedit error sit neque placeat animi ipsum quam? Libero quia dolorem esse iure labore earum officia rem, temporibus eius, sunt alias atque voluptatibus ex est numquam animi nam dolorum consequatur perferendis dicta, reiciendis blanditiis porro? Magnam odit quibusdam itaque eum explicabo ipsa possimus minima recusandae.</p>
+        </div>
+    </div>
+
+
+    <script>
+        window.addEventListener('scroll',() =>{
+            let main1 = this.document.getElementById('main1');
+            let contentPosition = main1.getBoundingClientRect().top;
+            let scrollY = window.scrollY
+
+            if(contentPosition < scrollY){
+                main1.classList.add('active');
+            }
+            else{
+                main1.classList.remove('active');
+            }
+        });
+
+    </script>
+</body>
+</html>
